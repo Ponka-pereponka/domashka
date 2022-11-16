@@ -1,0 +1,5 @@
+<?php
+$userName = $_GET["user_name"];
+
+echo "Hello,$userName!";
+?>
