@@ -5,7 +5,7 @@ $mysqli = mysqli_connect("localhost", "cyozknem_ponka-pereponka", "Rf7328836Rf",
 if ($mysqli == false){
     print("error");
 }else{
-   // print("Соединение установлено успешно");
+   print("Соединение установлено успешно");
 
     $name = $_POST["name"];
     $lastname = $_POST["lastname"];
@@ -13,13 +13,13 @@ if ($mysqli == false){
     $pass = $_POST["pass"];
     $pass = password_hash("$pass", PASSWORD_DEFAULT);//шифрование пароля
    
-    $result=$mysqli->query(" SELECT * FROM `ponka-pereponka` WHERE `e-mail`='$email'");
+    $result=$mysqli->query(" SELECT * FROM `ponka-pereponka` WHERE `email`='$email'");
 
     if($result->num_rows != 0) {
         print("Такой пользователь существует");
 
     }else{
-        $mysqli->query("INSERT INTO `ponka-pereponka`(`name`, `lasname`, `e-mail`, `pass`) VALUES ('$name','$lastname','$email','$pass')"); 
+        $mysqli->query("INSERT INTO `ponka-pereponka`(`name`, `lastname`, `email`, `pass`) VALUES ('$name','$lastname','$email','$pass')"); 
 
     }
 
