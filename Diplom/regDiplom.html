@@ -139,10 +139,11 @@
 						</label>
 					</div>
 					<input
-						type="submit"
+				        type="submit"
 						class="btn btn-lg btn-success btn-block"
 						value="Зарегистрироваться"
 					/>
+					
 				</form>
 			</div>
 		</div>
@@ -154,12 +155,14 @@
 				});
 				let result = await response.text();
 				if (result == "ok") {
-					alert("Пользователь успешно зарегистрирован!");
+					alert("Вы зарегистрировались на LaVanda");
+
 				} else {
 					info.innerText = "Такой пользователь уже существует!";
 				}
 			}
 		</script>
+		  
 
 		<script
 			src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
