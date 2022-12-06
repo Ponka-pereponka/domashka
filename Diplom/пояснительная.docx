@@ -1,0 +1,298 @@
+ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ГОРОДА МОСКВЫ ДОПОЛНИТЕЛЬНОГО ПРОФЕССИОНАЛЬНОГО ОБРАЗОВАНИЯ ЦЕНТР ПРОФЕССИОНАЛЬНЫХ КВАЛИФИКАЦИЙ И СОДЕЙСТВИЯ ТРУДОУСТРОЙСТВУ «ПРОФЕССИОНАЛ»
+
+
+ПОЯСНИТЕЛЬНАЯ ЗАПИСКА
+к итоговой аттестационной работе на тему
+«Разработка web-ресурса с использованием технологий HTML, CSS, JavaScript»
+(на примере web-ресурса: https://etheline.u-host.in/diplom/diplom.html)
+
+
+
+
+Слушателя Панченковой Екатерины Алексеевны группы №: 0975
+программы профессиональной переподготовки
+«Frontend разработка»
+
+
+
+
+
+
+
+
+
+Москва, 2022
+
+Оглавление
+
+ПОСТАНОВКА ЗАДАЧИ И ПЛАН РАБОТЫ.	3
+ОСНОВНАЯ ЧАСТЬ.	4
+НАЗНАЧЕНИЕ ВЕБ-РЕСУРСА.	4
+ОПИСАНИЕ ЭТАПОВ РАЗРАБОТКИ, ОПИСАНИЕ ФУНКЦИОНАЛА С ПРИЛОЖЕНИЕМ ЛИСТИНГОВ ИСХОДНОГО ПРОГРАММНОГО КОДА ОСНОВНОЙ ФУНКЦИИ, СТРУКТУРНЫХ МОДУЛЕЙ, ПРИМЕР КОДА-РАЗМЕТКИ	4
+СПИСОК ЛИТЕРАТУРЫ	12
+
+
+ 
+ПОСТАНОВКА ЗАДАЧИ И ПЛАН РАБОТЫ.
+
+Задачей является создание веб ресурса для автоматизации работы ногтевой студии. При начале работы над проектом, необходимо определиться, как будет работать серверная часть, как будет работать проект со стороны клиента. После чего необходимо определиться какой будет внешний вид сайта, а также какой контент будет размещен на сайте.
+Задачи к наполнению сайта: наличие информации о компании, прайс-лист, контакты, форма регистрации, форма обратной связи для записи клиента. 
+План работ: 
+1. Подключение фреймворка Bootstrap.
+2. Создание базы данных на хостинге.
+3. Верстка страниц сайта.
+4. Подключение страниц сайта к базе данных.
+
+ 
+ОСНОВНАЯ ЧАСТЬ.
+Назначение веб-ресурса.
+
+Веб-ресурс предназначен для предоставления информации потенциальным клиентам о компании, описании стоимости услуг, портфолио работ мастеров студии а также для возможности записи к понравившемуся мастеру.
+
+Описание этапов разработки, описание функционала с приложением листингов исходного программного кода основной функции, структурных модулей, пример кода-разметки
+
+Этап разработки начинался с создания проекта с использованием фреймворка Bootstrap ver 4.6 (далее “фреймворк”). Перед началом работы над проектом необходимо подключить фреймворк.
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+Листинг 1.
+
+Веб ресурс создавался с использованием системы сеток фреймворка “Container”, “Container-fluid”, а также дополнительных готовых компонентов фреймворка. Создается база данных на стороне хостинга для получения, записи данных пользователей.
+В проект веб ресурса входят 5 страниц в формате html,  и 1 страница в формате php в корне проекта. Помимо них, входят папки с изображениями и видео материалами. Страницы веб проекта адаптивны и могут открываться на разных устройствах  с разным разрешением экрана.
+При переходе по адресу https://etheline.u-host.in/diplom/diplom.html пользователь попадает на главную страницу сайта, на которой в шапке расположено меню для перехода на другие страницы веб ресурса.
+<nav class="navbar navbar-expand-lg navbar-light text-center" style="background-color: mediumpurple;">
+    <a class="navbar-brand" href="#">
+      <img src="/img/лава1.jpg" width="40" height="40" alt="">
+            LaVanda</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li1 class="nav-item active">
+            <a class="nav-link" href="diplom.html"> O нас <span class="sr-only">(текущая)</span></a>
+          </li1>
+          <li1 class="nav-item">
+            <a class="nav-link" href="priceDiplom.html">Прайс-лист</a>
+          </li1>
+          <li1 class="nav-item">
+            <a class="nav-link" href="kontDiplom.html">Контакты</a>
+          </li1>
+          <li1 class="nav-item">
+            <a class="nav-link" href="regDiplom.html">Личный кабинет</a>
+          </li1>
+        </ul>
+      </div>
+  </nav>
+
+Листинг 2.
+На главной странице расположены блоки с  информацией о компании, фото интерьера студии и информация о возможных вариантах оплаты . 
+ <div class="container-fluid d-flex mt-5 image-block">
+   <div class="box">Наш салон принимает оплату баковскими картами VISA,Mastercard,МИР.Также Вы можете произвести оплату через перевод "СбербанкОнлайн"</div>
+  </div>
+
+Листинг 3.
+Далее переход на страницу с описанием и стоимостью услуг. Реализованы информационные карточки с помощью свойств стилей CSS, а также при помощи фреймворка Bootstrup.
+ <h1 class="mt-5">Прайс-лист LaVanda</h1>
+  <div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 20rem;"> 
+        <img src="/img/фиолет.webp" class="card-img-top" alt="Маникюр">
+      <div class="card-body">
+        <p class="card-text">Маникюр</p>
+          <ul>
+            <li>Аппаратный маникюр-550руб</li>
+            <li>Обрезной маникюр-600руб</li>
+            <li>Покрытие лак (opi,cindy,coral)-250руб</li>
+            <li>покрытие гель-лак(bluesky,era,cindy)-1000руб</li>
+            <li>Наращивание ногтей от 1200руб</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 20rem;">
+        <img src="/img/ноги2.jpg" class="card-img-top" alt="волосы">
+          <div class="card-body">
+            <p class="card-text">Педикюр</p>
+            <ul>
+              <li>Аппаратный педикюр-550руб</li>
+              <li>Обрезной педикюр-400руб</li>
+              <li>Покрытие лак (opi,cindy,coral)-250руб</li>
+              <li>покрытие гель-лак(bluesky,era,cindy)-1000руб</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+  
+Листинг 4.
+В веб ресурсе представлена фотогалерея работ мастеров студии, клиент может выбрать понравившуюся работу и осуществить запись через отдельную форму. Переход в форму осуществляется по кнопке «Записаться к мастеру»
+ <div class="container1">
+    <div class="row">
+      <div class="col">
+        <div class="card" style="width: 15rem;"> 
+          <img src="/img/price1.jpg" class="card-img-top" alt="Маникюр">
+            <div class="card-body">
+              <p class="card-text">Работа матсера Ксении</p>
+              <a href="svyaz.html" class="btn btn-primary">Записаться к мастеру</a>
+            </div>
+        </div>
+      </div> 
+
+
+Листинг 5.
+
+ <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Введите номер телефона</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="te" class="form-text text-muted">Мы никогда никому не передадим Ваш номер.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Ваше Имя</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </form>
+ 
+
+Листинг 5.1
+Далее происходит перенаправление в форму, в которой также предусмотрен бонус для клиента в виде кликабельной картинки, при клике появляется модальное окно в промокодом на скидку.
+Листинг 6.
+
+<div class="container mt-5"><a class="picture" href="#modal"><img src="/img/подд.png" alt="" id="img2"></a></div>
+
+        
+ 
+ <div id="modal" class="wrapper">
+ <a class="substrate" href="#close"></a> 
+ <div class="block">
+ <a class="close" href="#close">x</a>
+ Ваш промокод на скидку : LaVa 12345
+ </div> 
+ </div>
+
+
+Листинг 6.1
+Следующая информационная страница содержит в себе видеоролик, контакты компании и форму обратной связи при возникновении вопросов.
+  <h1 class="mt-5">Контакты</h1>
+  <div class="container mt-5"></div><video src="/video/istockphoto-1158670101-640_adpp_is.mp4" controls></video></div>
+   
+   
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5">
+        <h3 class="pb-1">Контакты</h3>
+          <h4>Адрес:</h4>
+          <p>г. Москва, ул. Академика Смурфа, д. 9, стр. 4</p>
+          <h4>Телефон:</h4>
+          <p><a href="tel:+74952605289">+7 (495) 777-52-89</a></p>
+          <h4>E-mail:</h4>
+          <p><a href="mailto:hotline@eduprof.ru">LaVanda@mail.ru</a></p>
+          <h4>График работы:</h4>
+          <p>
+          Понедельник - четверг: с 8-30 по 21-00, пятница: с 8-30 по 20-00; 
+          </p>
+      </div>
+     <div class="col-md-7">
+      <h3 class="pb-1">Написать нам</h3>
+
+Листинг 7.
+
+Последней страницей является форма регистрации на сайте. Для зарегистрированных клиентов предусмотрена гибкая система скидок и акций.
+
+Форма регистрации выполнена в формате html. Для успешной регистрации пользователя на сервере приложен обработчик в формате php.
+После регистрации выводится информационное окно с подтверждением.
+<div class=”col-md-5 mx-auto mt-5”>
+                <form onsubmit=”sendForm(this); return false;”>
+                    <div class=”input-group mb-3”>
+                        <div class=”input-group-prepend”>
+<div class="container mt-5">
+ <h1 class="text-center">
+  <span class="material-symbols-outlined regtitle"> contact_mail </span> Регистрация пользователя
+</h1>
+<div class="col-md-5 mx-auto mt-5">
+ <form onsubmit="sendForm(this); return false;">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            <span class="material-symbols-outlined"> person </span>
+        </div>
+    </div>
+    <input type="text" class="form-control" placeholder="Имя" required name ="name" />
+ </div>
+ <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            <span class="material-symbols-outlined"> person </span>
+        </div>
+    </div>
+   <input
+        type="text"
+        class="form-control"
+        placeholder="Фамилия"
+        required
+        name="lastname"
+        />
+ </div>
+ <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            <span class="material-symbols-outlined"> mail </span>
+        </div>
+    </div>
+    <input type="email" class="form-control" placeholder="E-mail" required name="email" />
+    <p id="info"></p>
+
+                    
+Листинг 8
+<?php
+header('Content-Type: text/html; charset=utf-8');
+$mysqli = mysqli_connect("localhost", "cyozknem_ponka-pereponka", "Rf7328836Rf", "cyozknem_Ponka-pereponka");
+if ($mysqli == false) {
+  print("error");
+} else {
+ // print("Соединение установлено успешно");
+
+  $name = $_POST["name"];
+  $lastname = $_POST["lastname"];
+  $email = $_POST["email"];
+  $pass = $_POST["pass"];
+  $email = trim(mb_strtolower($_POST["email"]));
+  $pass = trim($_POST["pass"]);
+  $pass = password_hash("$pass", PASSWORD_DEFAULT);
+
+  $result = $mysqli->query("SELECT * FROM `ponka-pereponka` WHERE `email`='$email' AND `pass`='$pass'");
+  $result = $mysqli->query("SELECT * FROM `ponka-pereponka` WHERE `email`='$email'");
+
+  if ($result->num_rows != 0) {
+    print("exist");
+  } else {
+    $mysqli->query("INSERT INTO `ponka-pereponka`(`name`, `lastname`, `email`, `pass`) VALUES ('$name', '$lastname', '$email', '$pass')");
+    print("ok");
+  }
+}
+?>
+Листинг 9
+Документы можно как скачать так и открыть в онлайн режиме для просмотра.     
+Исходные файлы проекта можно просмотреть на GitHub по ссылке https://github.com/Ponka-pereponka/domashka/tree/main/Diplom 
+Тестирование работоспособности веб ресурса проводилось не в автоматическом режиме, т.е. без написания тестов. 
+ 
+СПИСОК ЛИТЕРАТУРЫ
+
+1. Электронные ресурсы. 
+1.  Сайт 
+Документация по фреймворку Bootstrap на русском языке [Электронный ресурс]: офиц. сайт. URL: https://bootstrap-4.ru/ (Дата обращения: 02.12.2022).
+2.  Сайт
+Использованные для работы шрифты  [Электронный ресурс] офиц.сайт URL: https://fonts.google.com/ (Дата обращения: 02.12.2022)
+3. Сайт 
+Официальная документация ресурса Fontawesome [Электронный ресурс]: офиц. сайт. URL: https://fontawesome.com/ (Дата обращения: 02.12.2022).
+4.  Сайт
+Электронный учебник по HTML и CSS [Электронный ресурс]: офиц. сайт. http://htmlbook.ru/html5 (Дата обращения: 19.05.2022).
+5. Сайт
+Наполняемость контента [Электронный ресурс]: офиц. сайт. https://www.google.com/ (Дата обращения: 01.12.2022).
+
+
+
